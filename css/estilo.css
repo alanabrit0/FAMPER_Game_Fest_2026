@@ -178,7 +178,6 @@ section {
     background: linear-gradient(90deg, var(--primaria), var(--secundaria));
 }
 
-/* ===== Cards de jogos ===== */
 .grade {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
