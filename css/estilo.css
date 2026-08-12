@@ -1,0 +1,428 @@
+:root {
+    --fundo: #0b0d1a;
+    --superficie: #14162b;
+    --superficie-clara: #1e2140;
+    --primaria: #7c3aed;
+    --secundaria: #3b82f6;
+    --destaque: #facc15;
+    --texto: #e2e8f0;
+    --texto-fraco: #94a3b8;
+    --sucesso: #22c55e;
+    --perigo: #ef4444;
+    --largura: 1180px;
+    --sombra: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    line-height: 1.65;
+    background-image: radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.15), transparent 40%);
+    min-height: 100vh;
+}
+
+a {
+    color: var(--secundaria);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--destaque);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: min(92%, var(--largura));
+    margin-inline: auto;
+}
+
+.cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(11, 13, 26, 0.94);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(8px);
+}
+
+.topo {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    font-size: 1.2rem;
+}
+.marca img {
+    width: 48px;
+    height: 48px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.menu a {
+    display: block;
+    padding: 10px 16px;
+    border-radius: 12px;
+    color: var(--texto-fraco);
+    transition: background 0.2s, color 0.2s;
+}
+.menu a:hover,
+.menu a.ativo {
+    background: var(--primaria);
+    color: #fff;
+}
+
+/* ===== Hero / Banner ===== */
+.hero {
+    min-height: 560px;
+    display: grid;
+    place-items: center;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(11, 13, 26, 0.3), rgba(11, 13, 26, 0.8));
+}
+.hero-conteudo {
+    position: relative;
+    width: min(92%, 900px);
+    text-align: center;
+}
+.hero h1 {
+    font-size: clamp(2.8rem, 10vw, 5.5rem);
+    line-height: 1.1;
+    margin: 0 0 0.5rem 0;
+}
+.destaque-texto {
+    color: var(--destaque);
+}
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ===== Botões ===== */
+.botao {
+    display: inline-block;
+    border: 0;
+    padding: 14px 28px;
+    border-radius: 99px;
+    background: var(--primaria);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
+}
+.botao:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.5);
+}
+.botao.secundario {
+    background: transparent;
+    border: 2px solid var(--secundaria);
+    box-shadow: none;
+}
+.botao.secundario:hover {
+    background: rgba(59, 130, 246, 0.15);
+}
+
+/* ===== Seções ===== */
+section {
+    padding: 64px 0;
+}
+
+.titulo-secao {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+.titulo-secao::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 5px;
+    margin-top: 12px;
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+}
+
+/* ===== Cards de jogos ===== */
+.grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+    margin-top: 24px;
+}
+
+.card {
+    background: var(--superficie);
+    padding: 20px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--sombra);
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--secundaria);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+.card img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 16px;
+    background: var(--superficie-clara);
+}
+.card h3 {
+    margin: 16px 0 8px 0;
+    font-size: 1.4rem;
+}
+.card p {
+    color: var(--texto-fraco);
+    margin-bottom: 12px;
+}
+
+.etiqueta {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 99px;
+    background: rgba(59, 130, 246, 0.15);
+    color: var(--secundaria);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* ===== Lista de jogos ===== */
+.lista-jogos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+.lista-jogos li {
+    background: var(--superficie-clara);
+    padding: 8px 20px;
+    border-radius: 99px;
+    border: 1px solid rgba(255,255,255,0.06);
+    font-weight: 600;
+}
+
+/* ===== Estatísticas ===== */
+.estatisticas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 18px;
+    margin-top: 28px;
+}
+.estatistica {
+    text-align: center;
+    padding: 24px 12px;
+    background: var(--superficie);
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+.estatistica strong {
+    display: block;
+    font-size: 2.4rem;
+    color: var(--destaque);
+    font-weight: 800;
+}
+
+/* ===== Regras ===== */
+.regras-lista {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.regras-lista li {
+    padding: 12px 20px;
+    background: var(--superficie);
+    border-left: 4px solid var(--primaria);
+    border-radius: 12px;
+}
+
+/* ===== Tabelas ===== */
+.tabela-programacao,
+.tabela-ranking {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--superficie);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+}
+.tabela-programacao th,
+.tabela-ranking th {
+    background: var(--superficie-clara);
+    color: var(--destaque);
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 700;
+}
+.tabela-programacao td,
+.tabela-ranking td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.tabela-programacao tbody tr:hover,
+.tabela-ranking tbody tr:hover {
+    background: rgba(124, 58, 237, 0.08);
+}
+
+/* ===== Premiações ===== */
+.grade-premios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+}
+.card-premio {
+    background: var(--superficie);
+    padding: 24px 16px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: transform 0.2s, border-color 0.2s;
+}
+.card-premio:hover {
+    transform: scale(1.02);
+    border-color: var(--destaque);
+}
+.card-premio h3 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    color: var(--destaque);
+}
+.card-premio p {
+    color: var(--texto-fraco);
+}
+
+/* ===== Formulário ===== */
+.form-inscricao {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    background: var(--superficie);
+    padding: 32px;
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+.form-inscricao label {
+    font-weight: 600;
+    margin-bottom: -6px;
+}
+.form-inscricao input,
+.form-inscricao select {
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: var(--fundo);
+    color: var(--texto);
+    font-size: 1rem;
+}
+.form-inscricao input:focus,
+.form-inscricao select:focus {
+    outline: 2px solid var(--primaria);
+    border-color: transparent;
+}
+.form-inscricao button {
+    align-self: flex-start;
+}
+
+/* ===== Rodapé ===== */
+.rodape {
+    background: var(--superficie);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 40px 0;
+    margin-top: 40px;
+}
+.rodape-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 32px;
+}
+.rodape-grid h2,
+.rodape-grid h3 {
+    color: var(--destaque);
+    margin-bottom: 8px;
+}
+.rodape-grid ul {
+    list-style: none;
+    padding: 0;
+}
+.rodape-grid ul li {
+    margin-bottom: 6px;
+}
+.rodape-grid address {
+    font-style: normal;
+    color: var(--texto-fraco);
+}
+
+/* ===== ID exemplo ===== */
+#topo {
+    scroll-margin-top: 80px;
+}
+#preparacao {
+    width: 100%;
+    height: 18px;
+    border-radius: 99px;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 700px) {
+    .topo {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 12px 0;
+    }
+    .menu {
+        justify-content: center;
+    }
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    .form-inscricao {
+        padding: 20px;
+    }
+}
